@@ -12,3 +12,10 @@ jobs:
         run: echo "::warning file=asd.js,line=9000::Hello, world!"
       - name: Error
         run: echo "::error file=asd.js,line=9000::Hello, world!"
+  acual-annotate:
+    name: Annotate with script
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ls -la
+      - run: ./annotate.sh
