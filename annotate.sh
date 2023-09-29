@@ -1,7 +1,7 @@
 #!/bin/bash
 
-GREP=$(grep -R "// TODO:")
+GREP=$(grep -Rn "// TODO:")
 
-while IFS=':' read -r path message; do
-  echo "${path} >>> ${message}"
+while IFS=':' read -r path line message; do
+  echo "::warning file=${path},line=${line}::${message}"
 done <<< "$GREP"
